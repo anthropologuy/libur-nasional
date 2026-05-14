@@ -23,40 +23,71 @@ https://api.kemendesa.link/libur-nasional
 
 ---
 
+````md
 # Endpoint
 
-## 1. Data Hari Libur per Tahun
+## 1. Data Hari Libur Terbaru
+
+Mengambil data hari libur versi/tahun terbaru secara otomatis tanpa perlu menentukan tahun.
+
+### Endpoint
+
+```txt
+/api/holidays/latest
+````
+
+### Full URL
+
+```txt
+https://api.kemendesa.link/libur-nasional/api/holidays/latest
+```
+
+### Keterangan
+
+Endpoint `latest` akan otomatis mengambil file tahun terbaru yang tersedia pada server.
+
+Contoh:
+
+* jika tersedia `2025.json` dan `2026.json`
+* maka endpoint `latest` akan otomatis menggunakan `2026.json`
+
+---
+
+## 2. Data Hari Libur per Tahun
 
 Mengambil seluruh data hari libur pada tahun tertentu.
 
 ### Endpoint
 
-```txt id="ux6jlwm"
+```txt
 /api/holidays/2026.json
 ```
 
 ### Full URL
 
-```txt id="knjlwm"
+```txt
 https://api.kemendesa.link/libur-nasional/api/holidays/2026.json
 ```
 
 ---
 
-## 2. Cek Apakah Tanggal Merupakan Hari Libur
+## 3. Cek Apakah Tanggal Merupakan Hari Libur
 
 Mengecek apakah suatu tanggal merupakan hari libur nasional atau cuti bersama.
 
 ### Endpoint
 
-```txt id="jlwm81"
+```txt
 /api/is-holiday?date=2026-08-17
 ```
 
 ### Full URL
 
-```txt id="jlwm82"
+```txt
 https://api.kemendesa.link/libur-nasional/api/is-holiday?date=2026-08-17
+```
+
+```
 ```
 
 ---

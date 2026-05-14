@@ -98,6 +98,20 @@ export default async function HomePage() {
 
           <div className="space-y-4">
 
+            {/* LATEST */}
+
+            <div className="bg-white p-4 rounded-xl border">
+
+              <div className="font-semibold mb-2">
+                Data hari libur terbaru/tahun ini (tidak perlu specify tahunnya)
+              </div>
+
+              <code className="text-sm break-all">
+                https://api.kemendesa.link/libur-nasional/api/holidays/latest
+              </code>
+
+            </div>
+
             {/* YEAR DATA */}
 
             <div className="bg-white p-4 rounded-xl border">
