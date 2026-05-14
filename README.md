@@ -17,13 +17,12 @@ API Hari Libur Nasional Indonesia berdasarkan SKB 3 Menteri resmi.
 
 # Base URL
 
-```txt id="n90yyi"
+```txt
 https://api.kemendesa.link/libur-nasional
 ```
 
 ---
 
-````md
 # Endpoint
 
 ## 1. Data Hari Libur Terbaru
@@ -91,7 +90,7 @@ https://api.kemendesa.link/libur-nasional/api/is-holiday?date=2026-08-17
 
 # Contoh Response
 
-```json id="jlwm83"
+```json
 {
   "success": true,
 
@@ -129,7 +128,7 @@ https://api.kemendesa.link/libur-nasional/api/is-holiday?date=2026-08-17
 
 # Struktur JSON Hari Libur
 
-```json id="jlwm84"
+```json
 {
   "metadata": {
     "version": "1.0.0",
@@ -198,13 +197,13 @@ Menandakan apakah tanggal tersebut ditetapkan sebagai Cuti Bersama oleh pemerint
 
 Semua tanggal menggunakan format ISO 8601:
 
-```txt id="jlwm85"
+```txt
 YYYY-MM-DD
 ```
 
 Contoh:
 
-```txt id="jlwm86"
+```txt
 2026-08-17
 ```
 
@@ -214,7 +213,9 @@ Contoh:
 
 SKB 3 Menteri 2026 resmi:
 
+```txt
 https://www.kemenkopmk.go.id/sites/default/files/pengumuman/2025-09/SKB%20Libur%20Nasional%20dan%20Cuti%20Bersama%20Tahun%202026.pdf
+```
 
 ---
 
