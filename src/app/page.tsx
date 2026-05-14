@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import HolidayCalendar from "@/components/HolidayCalendar";
 
 // =====================
 // METADATA BROWSER
@@ -85,6 +86,48 @@ export default async function HomePage() {
         <div className="text-sm text-gray-500 mb-8">
           Version {metadata.version} • Timezone {metadata.timezone}
         </div>
+
+{/* ===================== */}
+{/* PLAYGROUND */}
+{/* ===================== */}
+
+<section className="mb-12">
+
+  <div className="bg-gradient-to-br from-blue-50 to-indigo-100 border border-blue-200 rounded-3xl p-6 shadow-sm">
+
+    {/* HEADER */}
+
+    <div className="mb-6">
+
+      <div className="inline-flex items-center gap-2 bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">
+        Silakan Dicoba
+      </div>
+
+      <h2 className="text-3xl font-bold mb-2">
+        Kalender Hari Libur Nasional
+      </h2>
+
+      <p className="text-gray-700">
+        Kalender interaktif berdasarkan data API
+        libur nasional terbaru.
+      </p>
+
+    </div>
+
+    {/* CALENDAR */}
+
+    <HolidayCalendar />
+
+    {/* FOOTNOTE */}
+
+    <div className="text-xs text-gray-500 mt-4">
+      📌 Menandakan cuti bersama
+    </div>
+
+  </div>
+
+</section>
+
 
         {/* ===================== */}
         {/* ENDPOINTS */}
