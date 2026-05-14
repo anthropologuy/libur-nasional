@@ -1,36 +1,144 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# API Libur Nasional Indonesia
 
-## Getting Started
+API Hari Libur Nasional Indonesia berdasarkan SKB 3 Menteri resmi.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+* Hari Libur Nasional
+* Cuti Bersama
+* Metadata resmi
+* JSON API
+* ISO 8601 date format
+* Static + dynamic endpoints
+
+---
+
+# Base URL
+
+```txt
+https://api-libur-nasional.vercel.app/libur-nasional
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Endpoints
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 1. Holiday Data by Year
 
-## Learn More
+GET
 
-To learn more about Next.js, take a look at the following resources:
+```txt
+/api/holidays/2026.json
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Full URL:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```txt
+https://api-libur-nasional.vercel.app/libur-nasional/api/holidays/2026.json
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 2. Check Holiday
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+GET
+
+```txt
+/api/is-holiday?date=2026-08-17
+```
+
+Full URL:
+
+```txt
+https://api-libur-nasional.vercel.app/libur-nasional/api/is-holiday?date=2026-08-17
+```
+
+---
+
+# Example Response
+
+```json
+{
+  "success": true,
+
+  "query": {
+    "date": "2026-08-17"
+  },
+
+  "metadata": {
+    "version": "1.0.0",
+    "year": 2026,
+    "last_updated": "2025-09-14",
+    "timezone": "Asia/Jakarta",
+    "calendar_system": "gregorian",
+
+    "source": {
+      "name": "SKB 3 Menteri 2026",
+      "url": "https://www.kemenkopmk.go.id/sites/default/files/pengumuman/2025-09/SKB%20Libur%20Nasional%20dan%20Cuti%20Bersama%20Tahun%202026.pdf"
+    }
+  },
+
+  "data": {
+    "date": "2026-08-17",
+    "name": "Proklamasi Kemerdekaan",
+    "is_civic": true,
+    "is_religious": false,
+    "is_cuti_bersama": false
+  },
+
+  "is_holiday": true
+}
+```
+
+---
+
+# Holiday JSON Structure
+
+```json
+{
+  "metadata": {
+    "version": "1.0.0",
+    "year": 2026,
+    "last_updated": "2025-09-14",
+    "timezone": "Asia/Jakarta",
+    "calendar_system": "gregorian",
+
+    "source": {
+      "name": "SKB 3 Menteri 2026",
+      "url": "https://www.kemenkopmk.go.id/sites/default/files/pengumuman/2025-09/SKB%20Libur%20Nasional%20dan%20Cuti%20Bersama%20Tahun%202026.pdf"
+    }
+  },
+
+  "data": [
+    {
+      "date": "2026-08-17",
+      "name": "Proklamasi Kemerdekaan",
+      "is_civic": true,
+      "is_religious": false,
+      "is_cuti_bersama": false
+    }
+  ]
+}
+```
+
+---
+
+# Source
+
+SKB 3 Menteri 2026:
+
+https://www.kemenkopmk.go.id/sites/default/files/pengumuman/2025-09/SKB%20Libur%20Nasional%20dan%20Cuti%20Bersama%20Tahun%202026.pdf
+
+---
+
+# Tech Stack
+
+* Next.js
+* TypeScript
+* Vercel
+
+---
+
+# License
+
+MIT
