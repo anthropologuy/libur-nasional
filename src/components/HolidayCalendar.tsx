@@ -98,8 +98,8 @@ export default function HolidayCalendar() {
 
         const tipeLibur =
             props.isCutiBersama
-            ? "Cuti Bersama"
-            : "Hari Libur Nasional";
+            ? "📌 Cuti Bersama"
+            : "Hari Libur";
 
         const kategori =
             props.isReligious
@@ -128,7 +128,7 @@ export default function HolidayCalendar() {
         const tipeLibur =
             props.isCutiBersama
             ? "📌 Cuti Bersama"
-            : "Hari Libur Nasional";
+            : "Hari Libur";
 
         const kategori =
             props.isReligious
