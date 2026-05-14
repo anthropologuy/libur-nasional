@@ -47,7 +47,7 @@ export default function HolidayCalendar() {
 
             title:
             item.is_cuti_bersama
-                ? "📌 " + item.name
+                ? item.name
                 : item.name,
 
             start: item.date,
