@@ -2,62 +2,68 @@
 
 API Hari Libur Nasional Indonesia berdasarkan SKB 3 Menteri resmi.
 
-## Features
+---
+
+# Fitur
 
 * Hari Libur Nasional
 * Cuti Bersama
 * Metadata resmi
 * JSON API
-* ISO 8601 date format
-* Static + dynamic endpoints
+* Format tanggal ISO 8601
+* Static & dynamic endpoints
 
 ---
 
 # Base URL
 
-```txt
-https://api-libur-nasional.vercel.app/libur-nasional
+```txt id="n90yyi"
+https://api.kemendesa.link/libur-nasional
 ```
 
 ---
 
-# Endpoints
+# Endpoint
 
-## 1. Holiday Data by Year
+## 1. Data Hari Libur per Tahun
 
-GET
+Mengambil seluruh data hari libur pada tahun tertentu.
 
-```txt
+### Endpoint
+
+```txt id="ux6jlwm"
 /api/holidays/2026.json
 ```
 
-Full URL:
+### Full URL
 
-```txt
-https://api-libur-nasional.vercel.app/libur-nasional/api/holidays/2026.json
+```txt id="knjlwm"
+https://api.kemendesa.link/libur-nasional/api/holidays/2026.json
 ```
 
 ---
 
-## 2. Check Holiday
+## 2. Cek Apakah Tanggal Merupakan Hari Libur
 
-GET
+Mengecek apakah suatu tanggal merupakan hari libur nasional atau cuti bersama.
 
-```txt
+### Endpoint
+
+```txt id="jlwm81"
 /api/is-holiday?date=2026-08-17
 ```
 
-Full URL:
+### Full URL
 
-```txt
-https://api-libur-nasional.vercel.app/libur-nasional/api/is-holiday?date=2026-08-17
+```txt id="jlwm82"
+https://api.kemendesa.link/libur-nasional/api/is-holiday?date=2026-08-17
 ```
 
 ---
 
-# Example Response
+# Contoh Response
 
-```json
+```json id="jlwm83"
 {
   "success": true,
 
@@ -81,6 +87,7 @@ https://api-libur-nasional.vercel.app/libur-nasional/api/is-holiday?date=2026-08
   "data": {
     "date": "2026-08-17",
     "name": "Proklamasi Kemerdekaan",
+
     "is_civic": true,
     "is_religious": false,
     "is_cuti_bersama": false
@@ -92,9 +99,9 @@ https://api-libur-nasional.vercel.app/libur-nasional/api/is-holiday?date=2026-08
 
 ---
 
-# Holiday JSON Structure
+# Struktur JSON Hari Libur
 
-```json
+```json id="jlwm84"
 {
   "metadata": {
     "version": "1.0.0",
@@ -113,6 +120,7 @@ https://api-libur-nasional.vercel.app/libur-nasional/api/is-holiday?date=2026-08
     {
       "date": "2026-08-17",
       "name": "Proklamasi Kemerdekaan",
+
       "is_civic": true,
       "is_religious": false,
       "is_cuti_bersama": false
@@ -123,9 +131,60 @@ https://api-libur-nasional.vercel.app/libur-nasional/api/is-holiday?date=2026-08
 
 ---
 
-# Source
+# Penjelasan Field
 
-SKB 3 Menteri 2026:
+## `is_civic`
+
+Menandakan apakah hari libur bersifat kenegaraan atau sipil.
+
+Contoh:
+
+* Proklamasi Kemerdekaan
+* Hari Lahir Pancasila
+* Hari Buruh Internasional
+* Tahun Baru Masehi
+
+---
+
+## `is_religious`
+
+Menandakan apakah hari libur bersifat keagamaan.
+
+Contoh:
+
+* Idul Fitri
+* Natal
+* Nyepi
+* Waisak
+* Imlek
+
+---
+
+## `is_cuti_bersama`
+
+Menandakan apakah tanggal tersebut ditetapkan sebagai Cuti Bersama oleh pemerintah Indonesia.
+
+---
+
+# Format Tanggal
+
+Semua tanggal menggunakan format ISO 8601:
+
+```txt id="jlwm85"
+YYYY-MM-DD
+```
+
+Contoh:
+
+```txt id="jlwm86"
+2026-08-17
+```
+
+---
+
+# Sumber Data
+
+SKB 3 Menteri 2026 resmi:
 
 https://www.kemenkopmk.go.id/sites/default/files/pengumuman/2025-09/SKB%20Libur%20Nasional%20dan%20Cuti%20Bersama%20Tahun%202026.pdf
 
@@ -139,6 +198,6 @@ https://www.kemenkopmk.go.id/sites/default/files/pengumuman/2025-09/SKB%20Libur%
 
 ---
 
-# License
+# Lisensi
 
 MIT
