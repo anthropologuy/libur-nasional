@@ -34,7 +34,7 @@ Mengambil data hari libur versi/tahun terbaru secara otomatis tanpa perlu menent
 
 ```txt
 /api/holidays/latest
-````
+```
 
 ### Full URL
 
@@ -85,9 +85,6 @@ Mengecek apakah suatu tanggal merupakan hari libur nasional atau cuti bersama.
 
 ```txt
 https://api.kemendesa.link/libur-nasional/api/is-holiday?date=2026-08-17
-```
-
-```
 ```
 
 ---
