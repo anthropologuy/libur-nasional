@@ -1,5 +1,13 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {};
+const isProd = process.env.NODE_ENV === "production";
+
+const nextConfig: NextConfig = {
+
+  assetPrefix: isProd
+    ? "/libur-nasional"
+    : undefined,
+
+};
 
 export default nextConfig;
