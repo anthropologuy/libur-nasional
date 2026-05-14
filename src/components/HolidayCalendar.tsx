@@ -37,20 +37,28 @@ export default function HolidayCalendar() {
         const json =
           await response.json();
 
-        const mapped: CalendarEvent[] =
-          (json.data || []).map(
+        const mapped =
+        (json.data || []).map(
             (item: Holiday) => ({
 
-              title:
+            title: item.name,
+
+            start: item.date,
+
+            allDay: true,
+
+            extendedProps: {
+                isCutiBersama:
+                item.is_cuti_bersama,
+            },
+
+            classNames: [
                 item.is_cuti_bersama
-                  ? "📌 " + item.name
-                  : item.name,
-
-              start: item.date,
-
-              allDay: true,
+                ? "event-cuti"
+                : "event-libur"
+            ],
             })
-          );
+        );
 
         setEvents(mapped);
 
@@ -69,6 +77,33 @@ export default function HolidayCalendar() {
     <div className="bg-white rounded-3xl border p-4 shadow-sm">
 
       <FullCalendar
+        eventClick={(info) => {
+
+        alert(info.event.title);
+
+        }}
+
+        eventDidMount={(info) => {
+
+        info.el.title =
+            info.event.title;
+        }}
+
+        dayCellClassNames={(arg) => {
+
+        const day =
+            arg.date.getDay();
+
+        if (
+            day === 0 ||
+            day === 6
+        ) {
+            return ["weekend-day"];
+        }
+
+        return [];
+        }}
+
         plugins={[dayGridPlugin]}
         initialView="dayGridMonth"
         locale={idLocale}
