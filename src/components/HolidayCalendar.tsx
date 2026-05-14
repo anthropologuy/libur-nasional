@@ -10,6 +10,10 @@ type Holiday = {
   date: string;
   name: string;
   is_cuti_bersama?: boolean;
+
+  is_civic?: boolean;
+
+  is_religious?: boolean;
 };
 
 type CalendarEvent = {
@@ -45,14 +49,21 @@ export default function HolidayCalendar() {
             item.is_cuti_bersama
                 ? "📌 " + item.name
                 : item.name,
-                
+
             start: item.date,
 
             allDay: true,
 
             extendedProps: {
-                isCutiBersama:
+
+            isCutiBersama:
                 item.is_cuti_bersama,
+
+            isReligious:
+                item.is_religious,
+
+            isCivic:
+                item.is_civic,
             },
 
             classNames: [
@@ -82,35 +93,55 @@ export default function HolidayCalendar() {
       <FullCalendar
         eventClick={(info) => {
 
-        const isCuti =
-            info.event.extendedProps
-            .isCutiBersama;
+        const props =
+            info.event.extendedProps;
+
+        const tipeLibur =
+            props.isCutiBersama
+            ? "Cuti Bersama"
+            : "Hari Libur Nasional";
+
+        const kategori =
+            props.isReligious
+            ? "Hari Raya Keagamaan"
+            : props.isCivic
+            ? "Hari Besar Nasional"
+            : "Lainnya";
 
         alert(
-            `
-        ${info.event.title}
+        `${info.event.title}
 
         Tipe:
-        ${
-        isCuti
-            ? "Cuti Bersama"
-            : "Hari Libur Nasional"
-        }
-        `
+        ${tipeLibur}
+
+        Kategori:
+        ${kategori}`
         );
 
         }}
 
         eventDidMount={(info) => {
 
-        const isCuti =
-            info.event.extendedProps
-            .isCutiBersama;
+        const props =
+            info.event.extendedProps;
 
-        info.el.title =
-            isCuti
+        const tipeLibur =
+            props.isCutiBersama
             ? "📌 Cuti Bersama"
             : "Hari Libur Nasional";
+
+        const kategori =
+            props.isReligious
+            ? "Hari Raya Keagamaan"
+            : props.isCivic
+            ? "Hari Besar Nasional"
+            : "Lainnya";
+
+        info.el.title =
+        `${info.event.title}
+
+        ${tipeLibur}
+        ${kategori}`;
         }}
 
         dayCellClassNames={(arg) => {
