@@ -41,8 +41,11 @@ export default function HolidayCalendar() {
         (json.data || []).map(
             (item: Holiday) => ({
 
-            title: item.name,
-
+            title:
+            item.is_cuti_bersama
+                ? "📌 " + item.name
+                : item.name,
+                
             start: item.date,
 
             allDay: true,
@@ -79,14 +82,35 @@ export default function HolidayCalendar() {
       <FullCalendar
         eventClick={(info) => {
 
-        alert(info.event.title);
+        const isCuti =
+            info.event.extendedProps
+            .isCutiBersama;
+
+        alert(
+            `
+        ${info.event.title}
+
+        Tipe:
+        ${
+        isCuti
+            ? "Cuti Bersama"
+            : "Hari Libur Nasional"
+        }
+        `
+        );
 
         }}
 
         eventDidMount={(info) => {
 
+        const isCuti =
+            info.event.extendedProps
+            .isCutiBersama;
+
         info.el.title =
-            info.event.title;
+            isCuti
+            ? "📌 Cuti Bersama"
+            : "Hari Libur Nasional";
         }}
 
         dayCellClassNames={(arg) => {
